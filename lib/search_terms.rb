@@ -14,7 +14,7 @@ class SearchTerms
 
       @file_string = ""
       file.each_line do |line|
-        @file_string += "#{line}"
+        @file_string += line
       end
 
     end
