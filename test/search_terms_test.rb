@@ -24,7 +24,7 @@ class SearchTermsTest < MiniTest::Unit::TestCase
     a_search_terms = SearchTerms.new('data/my_file.txt')
     actual_result = a_search_terms.file_string
 
-    expected_result = "Monday\n"
+    expected_result = "Monday\nTuesday\nWednesday\n"
     assert_equal(expected_result, actual_result)
   end
 end
