@@ -9,15 +9,16 @@ class SearchTerms
   def initialize(filename)
     @filename = filename
 
-    search_terms_file = File.open('data/my_file.txt', 'r')
+    # at end of block, file will be closed automatically
+    File.open('data/my_file.txt', 'r') do |file|
 
-    @file_string = ""
-    search_terms_file.each_line do |line|
-      puts "line : #{line}"
-      @file_string += "#{line}"
+      @file_string = ""
+      file.each_line do |line|
+        puts "line : #{line}"
+        @file_string += "#{line}"
+      end
+
     end
-
-    search_terms_file.close
   end
 
 end
