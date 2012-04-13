@@ -2,7 +2,6 @@
 
 require 'test/unit'
 require_relative '../lib/search_terms'
-# join data to path or require relative
 
 class SearchTermsTest < MiniTest::Unit::TestCase
 
