@@ -10,7 +10,7 @@ class SearchTerms
     @filename = filename
 
     # at end of block, file will be closed automatically
-    File.open('data/my_file.txt', 'r') do |file|
+    File.open(@filename, 'r') do |file|
 
       @file_string = ""
       file.each_line do |line|
