@@ -1,4 +1,9 @@
 #!/usr/bin/env ruby
+# encoding : utf-8
+# Need to set encoding for this source code file
+# so tests can set expected result strings to contain characters with accents.
+# For example, Localización
+# Reference Programming Ruby 1.9 Ch 17.2
 
 require 'test/unit'
 require_relative '../lib/search_terms'
@@ -46,6 +51,10 @@ class SearchTermsTest < MiniTest::Unit::TestCase
     a_search_terms = SearchTerms.new('data/Localizable.strings', 'utf-16le')
     actual_result = a_search_terms.file_string.lines.to_a[1]
     expected_result = "   Localizable.strings\n"
+    assert_equal(expected_result, actual_result)
+
+    actual_result = a_search_terms.file_string.lines.to_a[24]
+    expected_result = "\"Location\" = \"Localización\";\n"
     assert_equal(expected_result, actual_result)
   end
 
