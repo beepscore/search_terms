@@ -42,6 +42,11 @@ class SearchTermsTest < MiniTest::Unit::TestCase
     actual_result = a_search_terms.file_string.lines.to_a[1]
     expected_result = "Tuesday\n"
     assert_equal(expected_result, actual_result)
+
+    a_search_terms = SearchTerms.new('data/Localizable.strings', 'utf-16le')
+    actual_result = a_search_terms.file_string.lines.to_a[1]
+    expected_result = "   Localizable.strings\n"
+    assert_equal(expected_result, actual_result)
   end
 
 
