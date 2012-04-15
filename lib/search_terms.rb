@@ -6,6 +6,7 @@ class SearchTerms
   attr_reader :file_encoding
   attr_reader :file_name
   attr_reader :file_string
+  attr_reader :search_terms_string
 
   def initialize(file_name, external_encoding)
     @file_name = file_name
@@ -30,6 +31,18 @@ class SearchTerms
         @file_string += line
       end
 
+    end
+  end
+
+
+  def configure_search_terms
+
+    @search_terms_string = ""
+    @file_string.each_line do |line|
+      puts line
+      if ("\"" == line[0])
+        @search_terms_string += line
+      end
     end
   end
 
