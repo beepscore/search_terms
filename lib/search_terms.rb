@@ -3,6 +3,7 @@
 
 class SearchTerms
 
+  attr_reader :file_encoding
   attr_reader :file_name
   attr_reader :file_string
 
@@ -11,6 +12,8 @@ class SearchTerms
 
     # at end of block, file will be closed automatically
     File.open(@file_name, 'r') do |file|
+
+      @file_encoding = file.external_encoding
 
       @file_string = ""
       file.each_line do |line|
