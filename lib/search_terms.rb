@@ -39,11 +39,11 @@ class SearchTerms
 
     @search_terms_string = ""
     @file_string.each_line do |line|
-      puts line
       if ("\"" == line[0])
         @search_terms_string += line
       end
     end
+    puts @search_terms_string
   end
 
 end
