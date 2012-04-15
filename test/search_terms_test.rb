@@ -67,11 +67,20 @@ class SearchTermsTest < MiniTest::Unit::TestCase
   end
 
 
-  def test_search_terms_string()
+  def test_search_terms_string_my_file()
     a_search_terms = SearchTerms.new('data/my_file.txt', 'utf-8')
     a_search_terms.configure_search_terms
     actual_result = a_search_terms.search_terms_string
     expected_result = "\"Monday\"\n\"Tuesday\"\n\"Wednesday\"\n"
+    assert_equal(expected_result, actual_result)
+  end
+
+  
+  def test_search_terms_string_localizable_strings_file()
+    a_search_terms = SearchTerms.new('data/Localizable.strings', 'utf-16le')
+    a_search_terms.configure_search_terms
+    actual_result = a_search_terms.search_terms_string.lines.count
+    expected_result = 15
     assert_equal(expected_result, actual_result)
   end
 
