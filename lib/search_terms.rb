@@ -40,7 +40,10 @@ class SearchTerms
     @search_terms_string = ""
     @file_string.each_line do |line|
       if ("\"" == line[0])
-        @search_terms_string += line
+        # line starts with ", assume it is a valid search term with a second ".
+        # split line at " characters, take element 1, re-delimit with ""
+        # add search term       
+        @search_terms_string += "\"" + line.split("\"")[1] + "\"\n"
       end
     end
     puts @search_terms_string
