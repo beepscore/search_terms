@@ -6,7 +6,6 @@ class SearchTerms
   attr_reader :file_encoding
   attr_reader :file_name
   attr_reader :file_string
-  attr_reader :search_terms_string
   attr_reader :search_terms_array
 
   def initialize(file_name, external_encoding)
@@ -38,7 +37,6 @@ class SearchTerms
 
   def configure_search_terms
 
-    @search_terms_string = ""
     @search_terms_array = []
     @file_string.each_line do |line|
       if ("\"" == line[0])
@@ -46,11 +44,10 @@ class SearchTerms
         # split line at " characters, take element 1, re-delimit with ""
         # add search term       
         search_term = "\"" + line.split("\"")[1] + "\""
-        @search_terms_string += search_term + "\n"
         @search_terms_array.push(search_term)
       end
     end
-    puts @search_terms_string
+    puts @search_terms_array
   end
 
 end
