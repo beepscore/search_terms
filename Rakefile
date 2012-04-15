@@ -3,6 +3,7 @@
 require 'rake'
 require 'rake/testtask'
 require_relative 'test/search_terms_test'
+require_relative 'test/searcher_test'
 
 # http://rake.rubyforge.org/
 # http://stackoverflow.com/questions/6715158/rails-how-to-set-up-minitest
