@@ -37,6 +37,14 @@ class SearchTermsTest < MiniTest::Unit::TestCase
   end
 
 
+  def test_file_line()
+    a_search_terms = SearchTerms.new('data/my_file.txt', 'utf-8')
+    actual_result = a_search_terms.file_string.lines.to_a[1]
+    expected_result = "Tuesday\n"
+    assert_equal(expected_result, actual_result)
+  end
+
+
   def test_file_string()
     a_search_terms = SearchTerms.new('data/my_file.txt', 'utf-8')
     actual_result = a_search_terms.file_string
