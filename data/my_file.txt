@@ -1,4 +1,5 @@
-Monday
-Tuesday
-Wednesday
+"Monday"
+"Tuesday"
+goobers
+"Wednesday"
 4
