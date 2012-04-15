@@ -19,7 +19,6 @@ class SearchTerms
     else
       read_access_and_encoding = "r:#{external_encoding}:#{internal_encoding}"
     end
-    puts read_access_and_encoding
 
     # at end of block, file will be closed automatically
     File.open(@file_name, read_access_and_encoding) do |file|
