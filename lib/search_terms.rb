@@ -47,7 +47,6 @@ class SearchTerms
         @search_terms_array.push(search_term)
       end
     end
-    puts @search_terms_array
   end
 
 end
