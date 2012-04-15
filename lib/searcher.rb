@@ -10,11 +10,10 @@ class Searcher
   end
 
 
-  # Current implementation of searcher doesn't use its parameters,
-  # returns ls of current directory
-  # TODO: Use parameters and ack to search for files containing search term
+  # Use ack to search directory for files containing search term
+  # Current implementation doesn't use directory parameter.
   def search(directory, search_term)
-    result = %x(ls)
+    %x[ack #{search_term}]
   end
 
 end
