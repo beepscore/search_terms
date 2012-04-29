@@ -11,6 +11,10 @@ class SearchTerms
   def initialize(file_name, external_encoding)
     @file_name = file_name
 
+    # To see a file's encoding, in Terminal use
+    #    $ file -I my_file.txt
+    #      my_file.txt: text/x-c; charset=utf-16le
+    
     # reference Programming Ruby 1.9 Ch 17.4
     internal_encoding = "utf-8"
     # avoid ruby warning:
