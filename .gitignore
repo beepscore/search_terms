@@ -4,6 +4,7 @@
 .config
 coverage
 InstalledFiles
+!lib
 lib/bundler/man
 pkg
 rdoc
