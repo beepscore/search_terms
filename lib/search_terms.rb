@@ -46,7 +46,7 @@ class SearchTerms
       if ("\"" == line[0])
         # line starts with ", assume it is a valid search term with a second ".
         # split line at " characters, take element 1, re-delimit with ""
-        # add search term       
+        # add search term
         search_term = "\"" + line.split("\"")[1] + "\""
         @search_terms_array.push(search_term)
       end
