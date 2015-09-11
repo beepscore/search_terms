@@ -79,7 +79,7 @@ class SearchTermsTest < MiniTest::Unit::TestCase
     assert_equal(expected_result, actual_result)
   end
 
-  
+
   def test_search_terms_array_my_file()
     a_search_terms = SearchTerms.new('data/my_file.txt', 'utf-8')
     a_search_terms.configure_search_terms
