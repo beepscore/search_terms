@@ -10,24 +10,24 @@ require_relative '../lib/search_terms'
 
 class SearchTermsTest < MiniTest::Test
 
-    # Terminal shows system considers Localizable.strings as UTF-16LE 
-    # data$ file Localizable.strings
-    # Localizable.strings: Little-endian UTF-16 Unicode c program text
-    # Explicitly set encoding to utf-16le. Otherwise ruby assumes file is UTF-8
-    #a_search_terms = SearchTerms.new('data/Localizable.strings', 'utf-16le')
-
   def test_string_from_file()
     actual_result = SearchTerms.string_from_file('data/my_file.txt', 'utf-8')
     expected_result = "\"Monday\"\n\"Tuesday\"\ngoobers\n\"Wednesday\"\n4\n"
     assert_equal(expected_result, actual_result)
   end
 
-  def test_string_from_file_line()
+  def test_string_from_file_utf_8_line()
     string_from_file = SearchTerms.string_from_file('data/my_file.txt', 'utf-8')
     actual_result = string_from_file.lines.to_a[1]
     expected_result = "\"Tuesday\"\n"
     assert_equal(expected_result, actual_result)
+  end
 
+  def test_string_from_file_utf_16le_line()
+    # Terminal shows system considers Localizable.strings as UTF-16LE 
+    # data$ file Localizable.strings
+    # Localizable.strings: Little-endian UTF-16 Unicode c program text
+    # Explicitly set encoding to utf-16le. Otherwise ruby assumes file is UTF-8
     string_from_file = SearchTerms.string_from_file('data/Localizable.strings', 'utf-16le')
     expected_result = "   Localizable.strings\n"
     assert_equal(expected_result, string_from_file.lines.to_a[1])
