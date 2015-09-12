@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 
-require 'test/unit'
+require 'minitest/autorun'
 require_relative '../lib/searcher'
 
-class SearcherTest < MiniTest::Unit::TestCase
+class SearcherTest < MiniTest::Test
 
   def setup()
   end
@@ -31,7 +31,7 @@ class SearcherTest < MiniTest::Unit::TestCase
     # initialize a_searcher with search terms
     a_searcher = Searcher.new([example_one, "another search term"])
     actual_result = a_searcher.search('directory_dont_care', a_searcher.search_terms[0])
-    
+
     # Note this test is brittle, because expected result depends on line number of example_one
     expected_result = "test/searcher_test.rb:30:    example_one = \"#{example_one}\"\n"
     assert_equal(expected_result, actual_result)

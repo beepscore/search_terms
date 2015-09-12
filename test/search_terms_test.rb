@@ -5,10 +5,10 @@
 # For example, Localización
 # Reference Programming Ruby 1.9 Ch 17.2
 
-require 'test/unit'
+require 'minitest/autorun'
 require_relative '../lib/search_terms'
 
-class SearchTermsTest < MiniTest::Unit::TestCase
+class SearchTermsTest < MiniTest::Test
 
   def setup()
   end
