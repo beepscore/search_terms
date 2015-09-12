@@ -6,7 +6,6 @@ class SearchTerms
   attr_reader :file_encoding
   attr_reader :file_name
   attr_reader :file_string
-  attr_reader :search_terms_array
 
   def initialize(file_name, external_encoding)
     @file_name = file_name
@@ -39,7 +38,7 @@ class SearchTerms
   end
 
 
-  def search_terms_array_from_string(terms_string)
+  def self.search_terms_array_from_string(terms_string)
 
     search_terms_array = []
     terms_string.each_line do |line|
