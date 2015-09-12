@@ -69,25 +69,22 @@ class SearchTermsTest < MiniTest::Test
 
   def test_search_terms_array_localizable_strings_file()
     a_search_terms = SearchTerms.new('data/Localizable.strings', 'utf-16le')
-    a_search_terms.configure_search_terms
-    actual_result = a_search_terms.search_terms_array.count
-    expected_result = 15
-    assert_equal(expected_result, actual_result)
+    file_string = a_search_terms.file_string
+    actual_result = a_search_terms.search_terms_array_from_string(file_string)
+    expected_count = 15
+    assert_equal(expected_count, actual_result.count)
 
-    actual_result = a_search_terms.search_terms_array[2]
-    expected_result = "\"Enter Feed ID\""
-    assert_equal(expected_result, actual_result)
+    assert_equal("\"Enter Feed ID\"", actual_result[2])
   end
 
 
   def test_search_terms_array_my_file()
     a_search_terms = SearchTerms.new('data/my_file.txt', 'utf-8')
-    a_search_terms.configure_search_terms
-    actual_result = a_search_terms.search_terms_array.count
-    expected_result = 3
-    assert_equal(expected_result, actual_result)
+    file_string = a_search_terms.file_string
+    actual_result = a_search_terms.search_terms_array_from_string(file_string)
+    expected_count = 3
+    assert_equal(expected_count, actual_result.count)
 
-    actual_result = a_search_terms.search_terms_array
     expected_result = ["\"Monday\"", "\"Tuesday\"", "\"Wednesday\""]
     assert_equal(expected_result, actual_result)
   end

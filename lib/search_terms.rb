@@ -14,7 +14,7 @@ class SearchTerms
     # To see a file's encoding, in Terminal use
     #    $ file -I my_file.txt
     #      my_file.txt: text/x-c; charset=utf-16le
-    
+
     # reference Programming Ruby 1.9 Ch 17.4
     internal_encoding = "utf-8"
     # avoid ruby warning:
@@ -39,18 +39,19 @@ class SearchTerms
   end
 
 
-  def configure_search_terms
+  def search_terms_array_from_string(terms_string)
 
-    @search_terms_array = []
-    @file_string.each_line do |line|
+    search_terms_array = []
+    terms_string.each_line do |line|
       if ("\"" == line[0])
         # line starts with ", assume it is a valid search term with a second ".
         # split line at " characters, take element 1, re-delimit with ""
         # add search term
         search_term = "\"" + line.split("\"")[1] + "\""
-        @search_terms_array.push(search_term)
+        search_terms_array.push(search_term)
       end
     end
+    search_terms_array
   end
 
 end
